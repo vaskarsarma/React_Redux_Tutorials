@@ -1,7 +1,8 @@
 import React from "react";
-import { User } from '../components/User';
-import { Main } from '../components/Main';
-import { connect } from 'react-redux';
+import { User } from "../components/User";
+import { Main } from "../components/Main";
+import { connect } from "react-redux";
+import { setName, setAge } from "../actions/userActions";
 
 class App extends React.Component {
     render() {
@@ -24,16 +25,10 @@ const mapStateToProps= (state) =>{
 const mapDispatchToProps= (dispatch) =>{
     return {
         setName: (name) => {
-            dispatch({
-                type: "SET_NAME",
-                payload: name
-            });
+            dispatch(setName(name));
         },
         setAge:(age) =>{
-            dispatch({
-                type:"SET_AGE",
-                payload:age
-            });
+            dispatch(setAge(age));
         }
     };
 };
